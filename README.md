@@ -20,4 +20,14 @@ This is for air analysis. My program use mh_z19 library and reads carbon dioxide
 
 ## Tips
 1. [Read about mh-z19](https://github.com/UedaTakeyuki/mh-z19)
-2. Create a systemd service for program
+2. Create a systemd service for program (use your path in ExecStart!):
+   
+- ``
+sudo touch /lib/systemd/system/co2meter.service
+``
+- ``
+sudo echo -e "[Unit]\nDescription=Start Co2 meter\nAfter=multi-user.target\n\n[Service]\nType=simple\nExecStart=/usr/bin/bash /home/user/co2_meter/start_meter.sh\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /lib/systemd/system/co2meter.service
+``
+- ``
+sudo systemctl daemon-reload && sudo systemctl enable co2meter && sudo systemctl start co2meter && sudo systemctl status co2meter
+``
