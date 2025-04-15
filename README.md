@@ -1,5 +1,4 @@
 # co2_meter
-
 ## What is it?
 This is for air analysis. My program use mh_z19 library and reads carbon dioxide levels and plays sound signals at a certain value. Read constants in code.
 
@@ -8,11 +7,17 @@ This is for air analysis. My program use mh_z19 library and reads carbon dioxide
 - Z19B
 
 ## How to run code
-If you don't need beep sounds you need remove or comment audio function in code. Next go to step 3.
+### Preparation
 1. Make it beep! Create beep directory: ``mkdir beep``
 2. Add audio file/files to beep directory.
-3. Running: ``sudo python main.py``
+3. Create python virtual environment: ``python -m venv env``
+4. Create python virtual environment: ``source env/bin/activate``
+5. Install library: ``pip3 install mh_z19 --upgrade``
+6. Grant permission to run the file: `chmod +x start_meter.sh`
+
+### Using
+1. Finally run meter: ``bash start_meter.sh``
 
 ## Tips
-1. [Read this, install mh_z19](https://github.com/UedaTakeyuki/mh-z19)
-2. Create a systemd service
+1. [Read about mh-z19](https://github.com/UedaTakeyuki/mh-z19)
+2. Create a systemd service for program
