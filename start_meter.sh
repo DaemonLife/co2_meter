@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-source $PWD/env/bin/activate
-sudo python $PWD/main.py
+source /home/user/co2_meter/env/bin/activate
+sudo python /home/user/co2_meter/main.py

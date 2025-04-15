@@ -13,8 +13,11 @@ import subprocess
 # CONSTANTS
 # ---------
 
+# root directory
+DIR_ROOT = "/home/user/co2_meter"
+
 # loging settings
-LOG_FILE = './meter.log'
+LOG_FILE = os.path.join(DIR_ROOT, 'meter.log')
 LOG_MAX_SIZE = 128 * 1024 * 1024
 
 # silent hours
@@ -25,13 +28,13 @@ TIME_SILENT_END = time(9, 15)
 SLEEP = 60
 
 # co2 sound trigger value
-CO2_TRIGGER = 1000
+CO2_TRIGGER = 100
 
 # sound volume fix. 1 is standart
 BEEP_VOLUME = "1.3"
 
 # audio folder
-DIR_AUDIO = "./beep"
+DIR_AUDIO = os.path.join(DIR_ROOT, 'beep')
 
 # ---------
 # FUNCTIONS
