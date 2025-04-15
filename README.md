@@ -1,5 +1,9 @@
 # co2_meter
-## How to run
+
+## For which device (100%)
+Z19B
+
+## How to run code
 ``
 sudo python main.py
 ``
