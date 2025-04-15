@@ -11,8 +11,8 @@ This is for air analysis. My program use mh_z19 library and reads carbon dioxide
 1. Make it beep! Create beep directory: ``mkdir beep``
 2. Add audio file/files to beep directory.
 3. Create python virtual environment: ``python -m venv env``
-4. Create python virtual environment: ``source env/bin/activate``
-5. Install library: ``pip3 install mh_z19 --upgrade``
+4. Open python virtual environment: ``source env/bin/activate``
+5. And install mh_z19 library: ``pip3 install mh_z19 --upgrade``
 6. Grant permission to run the file: `chmod +x start_meter.sh`
 
 ### Using
