@@ -26,16 +26,16 @@ sudo echo -e "[Unit]\nDescription=Start Co2 meter\nAfter=multi-user.target\n\n[S
 
 sudo systemctl daemon-reload && sudo systemctl enable co2meter && sudo systemctl start co2meter && sudo systemctl status co2meter
 ~~~
-3. Using `screen` program for run my program:
+3. Using `screen` program for run my program.
+You must have installed screen.
 ~~~
-# You must have installed screen
 screen -S co2 # create and enter to screen session with name "co2"
 bash ./start_meter.sh & # run my script as job background
 jobs # to see running background jobs, it must be running 
 fg [JOB_ID] # open job as foreground
 # Use ^Z to stop job and close it. Now it has stopped status
 bg [JOB_ID] # run job as background again
-screen -d # exit from session and save it in os background process
-screen -ls # list of all background sessions
+screen -d # detach session
+screen -ls # list of all detached sessions
 screen -r co2 # open session "co2"
 ~~~
