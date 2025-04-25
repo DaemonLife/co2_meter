@@ -26,8 +26,7 @@ sudo echo -e "[Unit]\nDescription=Start Co2 meter\nAfter=multi-user.target\n\n[S
 
 sudo systemctl daemon-reload && sudo systemctl enable co2meter && sudo systemctl start co2meter && sudo systemctl status co2meter
 ~~~
-3. Using `screen` program for run my program.
-You must have installed screen.
+3. Using `screen` program for run my script:
 ~~~
 screen -S co2 # create and enter to screen session with name "co2"
 bash ./start_meter.sh & # run my script as job background
