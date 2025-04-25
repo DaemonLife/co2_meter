@@ -28,7 +28,7 @@ TIME_SILENT_END = time(9, 15)
 SLEEP = 60
 
 # co2 sound trigger value
-CO2_TRIGGER = 100
+CO2_TRIGGER = 1000
 
 # sound volume fix. 1 is standart
 BEEP_VOLUME = "1.3"
