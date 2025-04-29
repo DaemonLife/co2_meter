@@ -9,26 +9,38 @@ This is for air analysis. My program use mh_z19 library and reads carbon dioxide
 ## How to run code
 ### Preparation
 1. Create python virtual environment: ``python -m venv env``
-2. Open python virtual environment: ``source env/bin/activate``
-3. And install mh_z19 library: ``pip3 install mh_z19 --upgrade``
-4. Grant permission to run the file: `chmod +x start_meter.sh`
+2. Login root: ``sudo su``
+3. Open python virtual environment: ``source env/bin/activate``
+4. And install mh_z19 library: ``pip3 install mh_z19 --upgrade``
+5. Exit root: ``exit``
+6. Grant permission to run the file: `chmod +x start_meter.sh`
 
 ### Using
-1. Finally run meter: ``bash start_meter.sh``
+1. Finally run meter as root: ``sudo -u root bash start_meter.sh``
 
 ## Tips
 1. [Read about mh-z19](https://github.com/UedaTakeyuki/mh-z19)
-2. ~~Create a systemd service for program (use your path in ExecStart!):~~
+2. Create a systemd service for script (use your path in ExecStart!):
 ~~~
-sudo touch /lib/systemd/system/co2meter.service
-~~~
-~~~
-sudo echo -e "[Unit]\nDescription=Start Co2 meter\nAfter=multi-user.target\n\n[Service]\nType=simple\nExecStart=/usr/bin/bash /home/user/co2_meter/start_meter.sh\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /lib/systemd/system/co2meter.service
+cat << EOF > /lib/systemd/system/co2meter.service
+[Unit]
+Description=Start Co2 meter
+After=multi-user.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/bash /home/user/co2_meter/start_meter.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
 ~~~
 ~~~
 sudo systemctl daemon-reload && sudo systemctl enable co2meter && sudo systemctl start co2meter && sudo systemctl status co2meter
 ~~~
-3. Using `screen` program for run my script:
+3. Or use `screen` program for run my script:
 ~~~
 # Run
 screen -S co2 # create and enter to screen session with name "co2".
