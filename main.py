@@ -28,10 +28,10 @@ TIME_SILENT_END = time(9, 15)
 SLEEP = 60
 
 # co2 sound trigger value
-CO2_TRIGGER = 1000
+CO2_TRIGGER = 800
 
 # sound volume fix. 1 is standart
-BEEP_VOLUME = "1.3"
+BEEP_VOLUME = "1.6"
 
 # audio folder
 DIR_AUDIO = os.path.join(DIR_ROOT, 'beep')
@@ -96,6 +96,7 @@ def main():
 
         with open(LOG_FILE, 'a', encoding='utf-8') as file:
             file.write(line)
+            print(line)
 
         time_now = datetime.now().time()
         if (int(dict_meter['co2']) >= CO2_TRIGGER) and (TIME_SILENT_START > time_now > TIME_SILENT_END):
